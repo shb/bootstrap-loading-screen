@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="Bootstrap.LoadingScreen.Demo">
+<head ng-controller="HeadController">
+
 		<meta charset="utf-8"/>
 		<title>Bootstrap Loading Screen</title>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" name="default">
-		<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/cosmo/bootstrap.min.css" rel="stylesheet" name="cosmo">
-	</head>
-	<body>
+		<link rel="stylesheet" ng-href="{{styles[style.index].href}}" name="{{styles[style.index].name}}">
+		<link rel="alternate stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-		<section class="loading-screen" style="background-color:white; position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
-			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="top:50%; margin-top:-132px">
+</head><body>
+
+		<section class="loading-screen" style="position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
+			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="top:50%; margin-top:-7em">
 				<div class="page-header">
 					<i class="text-primary fa fa-circle-o-notch fa-spin fa-4x fa-fw pull-left"></i>
 					<h2>
@@ -22,15 +23,33 @@
 			</div>
 		</section>
 
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="z-index:10001">
+		<div class="container-fluid">
 
-		</nav>
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="z-index:10000"
+				ng-controller="ConfiguratorController">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+						 role="button" aria-expand="false">Theme <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu">
+							<li ng-repeat="s in styles"
+							 ng-class="{ active:style.index==$index }">
+								<a href="#style:{{s.name | lowercase}}" ng-click="style.index=$index">{{s.name}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
 
-		<div class="container-fluid" style="position:relative; top:50px">
-			<a href="https://github.com/shb/bootstrap-loading-screen"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:10000" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			<a href="https://github.com/shb/bootstrap-loading-screen">
+				<img style="position: absolute; top: 0; right: 0; border: 0; z-index:10001" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+			</a>
+
 		</div>
 
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+		<script src="js/bootstrap-loading-screen.demo.js" async defer></script>
 		<script src="//code.jquery.com/jquery.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" async defer></script>
 		
-</html>
+</body></html>
