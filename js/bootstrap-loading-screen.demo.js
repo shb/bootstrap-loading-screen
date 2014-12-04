@@ -26,6 +26,17 @@
 				name: styles[i].name,
 				href: styles[i].href
 			};
+			$root.$watch('style.index', function (val, old) {
+				if (val != old) {
+					$('body > *').fadeOut('fast').promise().done(function ()
+					{
+						$root.style.name = styles[val].name;
+						$root.style.href = styles[val].href;
+						$root.$apply('style');
+						$('body > *').fadeIn('slow');
+					});
+				}
+			});
 		}
 	]);
 
@@ -39,3 +50,12 @@
 	]);
 
 })(angular);
+
+jQuery(function ($) {
+	
+	$(window).load(function () {
+		$('.loading-screen').fadeIn('fast');
+		$('.container-fluid').fadeIn('slow');
+	});
+
+});
