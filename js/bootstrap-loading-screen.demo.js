@@ -20,11 +20,11 @@
 		function ($root, $scope, styles)
 		{
 			$root.styles = styles;
-			var i = Math.floor(Math.random() * styles.length);
+			var si = Math.floor(Math.random() * styles.length);
 			$root.style = {
-				index: i,
-				name: styles[i].name,
-				href: styles[i].href
+				index: si,
+				name: styles[si].name,
+				href: styles[si].href
 			};
 			$root.$watch('style.index', function (val, old) {
 				if (val != old) {
@@ -35,6 +35,35 @@
 						$root.$apply('style');
 						$('body > *').fadeIn('slow');
 					});
+				}
+			});
+
+			$root.icons = [
+				{ name:"Circle",  glyph:"circle-o-notch" },
+				{ name:"Gear",    glyph:"cog" },
+				{ name:"Arrows",  glyph:"refresh" },
+				{ name:"Spinner", glyph:"spinner" }
+			];
+			$root.sizes = [
+				{ icon:'lg', title:'h4' },
+				{ icon:'2x', title:'h4' },
+				{ icon:'3x', title:'h3' },
+				{ icon:'4x', title:'h2' },
+				{ icon:'5x', title:'h1' }
+			];
+			var ii = Math.floor(Math.random() * $root.icons.length);
+			var is = Math.floor(Math.random() * $root.sizes.length-1)+1;
+			$root.icon = {
+				index: ii,
+				name: $root.icons[ii].name,
+				glyph: $root.icons[ii].glyph,
+				size: is,
+				blur: Math.floor(Math.random() * 5)
+			};
+			$root.$watch('icon.index', function (val, old) {
+				if (val != old) {
+					$root.icon.name = $root.icons[val].name;
+					$root.icon.glyph = $root.icons[val].glyph;
 				}
 			});
 		}
@@ -51,11 +80,10 @@
 
 })(angular);
 
-jQuery(function ($) {
-	
-	$(window).load(function () {
-		$('.loading-screen').fadeIn('fast');
-		$('.container-fluid').fadeIn('slow');
-	});
+jQuery(document).ready(function () {
+	$('.loading-screen').fadeIn('slow');
+});
 
+jQuery(window).load(function () {
+	$('.container-fluid').fadeIn('slow');
 });
