@@ -11,7 +11,13 @@
 		{ name:"Journal",  href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/journal/bootstrap.min.css" },
 		{ name:"Lumen",    href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/lumen/bootstrap.min.css" },
 		{ name:"Readable", href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/readable/bootstrap.min.css" },
-		{ name:'Simplex',  href:'//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/simplex/bootstrap.min.css' }
+		{ name:"Sandstone",href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/sandstone/bootstrap.min.css"},
+		{ name:'Simplex',  href:'//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/simplex/bootstrap.min.css' },
+		{ name:"Slate",    href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/slate/bootstrap.min.css" },
+		{ name:"Spacelab", href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/spacelab/bootstrap.min.css" },
+		{ name:"Superhero",href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/superhero/bootstrap.min.css" },
+		{ name:"United",   href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/united/bootstrap.min.css" },
+		{ name:"Yeti",     href:"//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/yeti/bootstrap.min.css" }
 	]);
 
 	demo.controller('HeadController', [
