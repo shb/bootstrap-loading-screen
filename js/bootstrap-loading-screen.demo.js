@@ -87,6 +87,21 @@
 		}
 	}
 
+	ConfiguratorCntl.$inject = [
+		'$rootScope', '$scope'
+	];
+	demo.controller('ConfiguratorController', ConfiguratorCntl)
+	function ConfiguratorCntl (
+		$root, $scope
+	) {
+		$root.code = '';
+
+		$scope.updateCode = function ()
+		{
+			$('#codeDialog pre.modal-body').text($('.loading-screen').html());
+		};
+	}
+
 })(angular);
 
 jQuery(document).ready(function () {
