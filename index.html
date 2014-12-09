@@ -93,7 +93,7 @@
 						</ul>
 					</li>
 					<li>
-						<button type="button" class="btn btn-default navbar-btn"
+						<button type="button" class="btn btn-default navbar-btn" title="Show loading screen markup"
 						 data-toggle="modal" data-target="#codeDialog"
 						 ng-click="updateCode()">
 							<i class="fa fa-terminal fa-lg fa-fw"></i>
@@ -110,21 +110,25 @@
 			</a>
 
 			<div id="codeDialog" class="modal fade" style="z-index:10002">
-				<div class="modal-dialog modal-lg">
+				<div class="modal-dialog modal-lg" ng-controller="CodeDialogCntl">
 					<div class="modal-content">
 						<div class="modal-header">
-						  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						  <button type="button" class="close" data-dismiss="modal">
+							  <i class="fa fa-close" aria-hidden="true"></i><span class="sr-only">Close</span>
+							 </button>
 						  <h4 class="modal-title">Loading screen markup</h4>
 						</div>
-						<pre class="modal-body" style="margin:0 auto">
-						</pre>
+						<textarea rows="16" class="modal-body" style="width:100%; margin:0 auto" ng-click="selectCode()"></textarea>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary">
-								<i class="fa fa-paste fa-lg fa-fw"></i>
-							</button>
-							<button type="button" class="btn btn-default">
-							  <i class="fa fa-download fa-lg fa-fw"></i>
-							</button>
+							<div class="btn-group">
+								<!--button type="button" class="btn btn-default">
+									<i class="fa fa-paste fa-lg fa-fw"></i>
+								</button-->
+								<a href="data:" download="bootstrap-loading-screen.html"
+								 title="Download as html file" class="btn btn-default">
+								  <i class="fa fa-download fa-lg fa-fw"></i>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -104,7 +104,7 @@
 			html = html.replace(/\<\!\-\-[^\n]+\-\-\>/g, '');
 			html = html.replace(/\n+/g, '\n');
 			var tmp = $(
-				'<div><aside class="loading-screen">'
+				'<div><aside class="loading-screen" style="position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">'
 				+ html +
 				'</aside></div>'
 			);
@@ -122,8 +122,21 @@
 				'ng-scope': true
 			}) $('.'+cls, tmp).removeClass(cls);
 
-			$('#codeDialog pre.modal-body').text($(tmp).html());
+			$('#codeDialog .modal-body').text($(tmp).html());
+
+			$('#codeDialog .fa-download').parent('a.btn').attr('href', 'data:text/html,'+encodeURI($(tmp).html()));
 		};
+	}
+
+	CodeDialogCntl.$inject = [ '$scope' ];
+	demo.controller('CodeDialogCntl', CodeDialogCntl);
+	function CodeDialogCntl (
+		$scope
+	) {
+		$scope.selectCode = function ()
+		{
+			$('#codeDialog textarea.modal-body').get(0).setSelectionRange(0,9999);
+		}
 	}
 
 })(angular);
