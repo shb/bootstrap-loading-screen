@@ -10,35 +10,35 @@
 
 </head><body>
 
-		<aside class="loading-screen" style="display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
-			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="top:50%; margin-top:-7em">
-				<div class="page-header">
-					<i class="text-primary fa fa-spin fa-fw pull-left"
-					 ng-class="'fa-'+icon.glyph+' fa-'+sizes[icon.size].icon" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.2)+'ex'}"></i>
-					<hgroup ng-cloak ng-switch="icon.size" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.1)+'ex'}">
-						<h1 ng-switch-when="4">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h1>
-						<h2 ng-switch-when="3">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h2>
-						<h3 ng-switch-when="2">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h3>
-						<h4 ng-switch-default>
-							Bootstrap<br ng-if="icon.size > 0"/>
-							<small>Loading Screen</small>
-						</h4>
-					</hgroup>
-				</div>
-				<p class="loading-status text-info" style="text-align:center">
-					Elegant loading screen exploiting Bootstrap standard components
-				</p>
-			</div>
-		</aside>
+<aside class="loading-screen" style="display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
+	<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="position:absolute; top:50%; margin-top:-7em">
+		<div class="page-header">
+			<i class="text-primary fa fa-spin fa-fw pull-left"
+			 ng-class="'fa-'+icon.glyph+' fa-'+sizes[icon.size].icon" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.2)+'ex'}"></i>
+			<hgroup ng-cloak ng-switch="icon.size" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.1)+'ex'}">
+				<h1 ng-switch-when="4">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h1>
+				<h2 ng-switch-when="3">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h2>
+				<h3 ng-switch-when="2">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h3>
+				<h4 ng-switch-default>
+					Bootstrap<br ng-if="icon.size > 0"/>
+					<small>Loading Screen</small>
+				</h4>
+			</hgroup>
+		</div>
+		<p class="loading-status text-info" style="text-align:center">
+			Elegant loading screen exploiting Bootstrap standard components
+		</p>
+	</div>
+</aside>
 
 		<div class="container-fluid" style="display:none">
 
@@ -101,7 +101,7 @@
 					</li>
 				</ul>
 				<p class="navbar-text navbar-left">
-					<a href="https://flattr.com/submit/auto?user_id=coch&url=http%3A%2F%2Fshb.github.io%2Fbootstrap-loading-screen" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+					<a class="navbar-link" href="https://flattr.com/submit/auto?user_id=coch&url=http%3A%2F%2Fshb.github.io%2Fbootstrap-loading-screen" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 				</p>
 			</nav>
 
@@ -119,8 +119,12 @@
 						<pre class="modal-body" style="margin:0 auto">
 						</pre>
 						<div class="modal-footer">
-						  <!--button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						  <button type="button" class="btn btn-primary">Save changes</button-->
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-paste fa-lg fa-fw"></i>
+							</button>
+							<button type="button" class="btn btn-default">
+							  <i class="fa fa-download fa-lg fa-fw"></i>
+							</button>
 						</div>
 					</div>
 				</div>
