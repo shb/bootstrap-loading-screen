@@ -87,6 +87,45 @@
 		}
 	}
 
+	ConfiguratorCntl.$inject = [
+		'$rootScope', '$scope'
+	];
+	demo.controller('ConfiguratorController', ConfiguratorCntl)
+	function ConfiguratorCntl (
+		$root, $scope
+	) {
+		$root.code = '';
+
+		$scope.updateCode = function ()
+		{
+			var html = $('.loading-screen').html();
+
+			// Remove (ng) comments
+			html = html.replace(/\<\!\-\-[^\n]+\-\-\>/g, '');
+			html = html.replace(/\n+/g, '\n');
+			var tmp = $(
+				'<div><aside class="loading-screen">'
+				+ html +
+				'</aside></div>'
+			);
+
+			// Remove ng attributes
+			for (var attr in {
+				'ng-class': true,
+				'ng-style': true,
+				'ng-switch': true,
+				'ng-switch-when': true
+			}) $('['+attr+']', tmp).attr(attr, null);
+
+			// Remove ng classes
+			for (var cls in {
+				'ng-scope': true
+			}) $('.'+cls, tmp).removeClass(cls);
+
+			$('#codeDialog pre.modal-body').text($(tmp).html());
+		};
+	}
+
 })(angular);
 
 jQuery(document).ready(function () {

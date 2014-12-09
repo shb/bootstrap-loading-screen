@@ -10,41 +10,43 @@
 
 </head><body>
 
-		<aside class="loading-screen" style="display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
-			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="top:50%; margin-top:-7em">
-				<div class="page-header">
-					<i class="text-primary fa fa-spin fa-fw pull-left"
-					 ng-class="'fa-'+icon.glyph+' fa-'+sizes[icon.size].icon" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.2)+'ex'}"></i>
-					<hgroup ng-cloak ng-switch="icon.size" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.1)+'ex'}">
-						<h1 ng-switch-when="4">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h1>
-						<h2 ng-switch-when="3">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h2>
-						<h3 ng-switch-when="2">
-							Bootstrap<br/>
-							<small>Loading Screen</small>
-						</h3>
-						<h4 ng-switch-default>
-							Bootstrap<br ng-if="icon.size > 0"/>
-							<small>Loading Screen</small>
-						</h4>
-					</hgroup>
-				</div>
-				<p class="loading-status text-info" style="text-align:center">
-					Elegant loading screen exploiting Bootstrap standard components
-				</p>
-			</div>
-		</aside>
+<aside class="loading-screen" style="display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999">
+	<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="position:absolute; top:50%; margin-top:-7em">
+		<div class="page-header">
+			<i class="text-primary fa fa-spin fa-fw pull-left"
+			 ng-class="'fa-'+icon.glyph+' fa-'+sizes[icon.size].icon" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.2)+'ex'}"></i>
+			<hgroup ng-cloak ng-switch="icon.size" ng-style="{'text-shadow':'0 0 '+(icon.blur*0.1)+'ex'}">
+				<h1 ng-switch-when="4">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h1>
+				<h2 ng-switch-when="3">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h2>
+				<h3 ng-switch-when="2">
+					Bootstrap<br/>
+					<small>Loading Screen</small>
+				</h3>
+				<h4 ng-switch-default>
+					Bootstrap<br ng-if="icon.size > 0"/>
+					<small>Loading Screen</small>
+				</h4>
+			</hgroup>
+		</div>
+		<p class="loading-status text-info" style="text-align:center">
+			Elegant loading screen exploiting Bootstrap standard components
+		</p>
+	</div>
+</aside>
 
 		<div class="container-fluid" style="display:none">
 
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="z-index:10000"
-				ang-controller="ConfiguratorController">
-				<a href="." class="navbar-brand -btn -btn-default -btn-navbar"><i class="fa fa-refresh fa-lg fa-fw"></i></a>
+				ng-controller="ConfiguratorController">
+				<a href="." class="navbar-brand -btn -btn-default -btn-navbar">
+					<i class="fa fa-refresh fa-lg fa-fw"></i>
+				</a>
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -90,15 +92,43 @@
 							</li>
 						</ul>
 					</li>
+					<li>
+						<button type="button" class="btn btn-default navbar-btn"
+						 data-toggle="modal" data-target="#codeDialog"
+						 ng-click="updateCode()">
+							<i class="fa fa-terminal fa-lg fa-fw"></i>
+						</button>
+					</li>
 				</ul>
 				<p class="navbar-text navbar-left">
-					<a href="https://flattr.com/submit/auto?user_id=coch&url=http%3A%2F%2Fshb.github.io%2Fbootstrap-loading-screen" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+					<a class="navbar-link" href="https://flattr.com/submit/auto?user_id=coch&url=http%3A%2F%2Fshb.github.io%2Fbootstrap-loading-screen" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 				</p>
 			</nav>
 
 			<a href="https://github.com/shb/bootstrap-loading-screen">
 				<img style="position: absolute; top: 0; right: 0; border: 0; z-index:10001" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
 			</a>
+
+			<div id="codeDialog" class="modal fade" style="z-index:10002">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						  <h4 class="modal-title">Loading screen markup</h4>
+						</div>
+						<pre class="modal-body" style="margin:0 auto">
+						</pre>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-paste fa-lg fa-fw"></i>
+							</button>
+							<button type="button" class="btn btn-default">
+							  <i class="fa fa-download fa-lg fa-fw"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		</div>
 
